@@ -19,3 +19,6 @@ wise to override the default configuration based on your requirement only after 
 
 This example demo address the issue of exposing sensetive data to unintended users by limiting access to the actuator endpoints to only authenticated/authorized users.
 This can be seen in the config package where the spring security configration is done. Spring boot security starter dependency is added in order to secure the sensetive actuatir endpoints. 
+
+Finally, to try out this application, download it to your local and run it as is at port 8080. Then try to hit "http:localhost:8080/actuators/helath", it will give you the status
+of the application as "UP". Since, the health endpoint is not secured, you will get response without any security hicup. However, if you try now to hit any other endpoint that exposes sensetive data, like "http://localhost:8080/actuator/env" to see all the enviroment variables, then you will propted to provided security credentials. Use user as username and pw as password as configured in application.properties to access the /env endpoint. 
